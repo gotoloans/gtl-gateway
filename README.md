@@ -20,4 +20,4 @@ The main flow contains 8(steps) that you have to follow
 8) Confirm the loan request
 
 
-<a href="https://app.gotoloans.com"><img src="https://raw.githubusercontent.com/gotoloans/gtl-gateway/master/images/gtl-flow.png" align="left" height="80%" width="80%" ></a>
+<a href="https://app.gotoloans.com"><img src="https://raw.githubusercontent.com/gotoloans/gtl-gateway/master/images/gtl-flow.png" align="left" height="90%" width="90%" ></a>
