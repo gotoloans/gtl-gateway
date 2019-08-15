@@ -1,0 +1,635 @@
+{
+	"info": {
+		"_postman_id": "3615e94f-38b0-42f7-bc28-4b917833a01b",
+		"name": "Tell us about your car",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "0 - Authentication",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ce4729ab-9644-44ec-a3f3-acec2c458c70",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"GTL-TOKEN\",  \"Bearer \" + jsonData.access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic Z1BTZmlqRGlkOEoxbXhGSlBUS0lxeVhUclJJYTpnR2xpREhHWDFYOHNKNDRQQ2tEMDF5cHJ2dW9h"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{SERVER}}/token",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "000 - Get car years",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{GTL-TOKEN}}"
+					},
+					{
+						"key": "Apikey",
+						"value": "{{GTL-API-KEY}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{SERVER}}{{APP-CONTEXT}}/api/years?used=true",
+					"host": [
+						"{{SERVER}}{{APP-CONTEXT}}"
+					],
+					"path": [
+						"api",
+						"years"
+					],
+					"query": [
+						{
+							"key": "used",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "001 - Get car makers",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{GTL-TOKEN}}"
+					},
+					{
+						"key": "Apikey",
+						"value": "{{GTL-API-KEY}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{SERVER}}{{APP-CONTEXT}}/api/makes?used=true&year=2018",
+					"host": [
+						"{{SERVER}}{{APP-CONTEXT}}"
+					],
+					"path": [
+						"api",
+						"makes"
+					],
+					"query": [
+						{
+							"key": "used",
+							"value": "true"
+						},
+						{
+							"key": "year",
+							"value": "2018"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "002 - Get car models by maker",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{GTL-TOKEN}}",
+						"type": "text"
+					},
+					{
+						"key": "Apikey",
+						"value": "{{GTL-API-KEY}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{SERVER}}{{APP-CONTEXT}}/api/models?used=true&year=2018&makeId=1",
+					"host": [
+						"{{SERVER}}{{APP-CONTEXT}}"
+					],
+					"path": [
+						"api",
+						"models"
+					],
+					"query": [
+						{
+							"key": "used",
+							"value": "true"
+						},
+						{
+							"key": "year",
+							"value": "2018"
+						},
+						{
+							"key": "makeId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "003 - Get car trim by maker and model",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{GTL-TOKEN}}",
+						"type": "text"
+					},
+					{
+						"key": "Apikey",
+						"value": "{{GTL-API-KEY}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{SERVER}}{{APP-CONTEXT}}/api/trims?used=true&year=2018&makeId=1&modelId=5771",
+					"host": [
+						"{{SERVER}}{{APP-CONTEXT}}"
+					],
+					"path": [
+						"api",
+						"trims"
+					],
+					"query": [
+						{
+							"key": "used",
+							"value": "true"
+						},
+						{
+							"key": "year",
+							"value": "2018"
+						},
+						{
+							"key": "makeId",
+							"value": "1"
+						},
+						{
+							"key": "modelId",
+							"value": "5771"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "004 - Get car styles by maker, model and trim",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{GTL-TOKEN}}",
+						"type": "text"
+					},
+					{
+						"key": "Apikey",
+						"value": "{{GTL-API-KEY}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{SERVER}}{{APP-CONTEXT}}/api/styles?used=true&year=2018&makeId=1&modelId=5771&seriesId=10371",
+					"host": [
+						"{{SERVER}}{{APP-CONTEXT}}"
+					],
+					"path": [
+						"api",
+						"styles"
+					],
+					"query": [
+						{
+							"key": "used",
+							"value": "true"
+						},
+						{
+							"key": "year",
+							"value": "2018"
+						},
+						{
+							"key": "makeId",
+							"value": "1"
+						},
+						{
+							"key": "modelId",
+							"value": "5771"
+						},
+						{
+							"key": "seriesId",
+							"value": "10371"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "005 - Get car by maker, model, trim and style",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{GTL-TOKEN}}",
+						"type": "text"
+					},
+					{
+						"key": "Apikey",
+						"value": "{{GTL-API-KEY}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{SERVER}}{{APP-CONTEXT}}/api/vehicles/search/by?used=true&year=2018&makeId=1&modelId=5771&seriesId=10371&bodyStyleId=126",
+					"host": [
+						"{{SERVER}}{{APP-CONTEXT}}"
+					],
+					"path": [
+						"api",
+						"vehicles",
+						"search",
+						"by"
+					],
+					"query": [
+						{
+							"key": "used",
+							"value": "true"
+						},
+						{
+							"key": "year",
+							"value": "2018"
+						},
+						{
+							"key": "makeId",
+							"value": "1"
+						},
+						{
+							"key": "modelId",
+							"value": "5771"
+						},
+						{
+							"key": "seriesId",
+							"value": "10371"
+						},
+						{
+							"key": "bodyStyleId",
+							"value": "126"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "006 - Publish a loan interest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1636349e-9342-4915-b74b-d35ea328d147",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"LOAN-INTEREST-ID\", jsonData.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{GTL-TOKEN}}",
+						"type": "text"
+					},
+					{
+						"key": "Apikey",
+						"value": "{{GTL-API-KEY}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"vehicle\": {\n        \"vid\": 416481,\n        \"kms\": 10000,\n        \"province\": \"ON\",\n        \"outOfProvince\": false,\n        \"rebuiltOrSalvage\": false,\n        \"options\": []\n    }\n}"
+				},
+				"url": {
+					"raw": "{{SERVER}}{{APP-CONTEXT}}/api/loans",
+					"host": [
+						"{{SERVER}}{{APP-CONTEXT}}"
+					],
+					"path": [
+						"api",
+						"loans"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "007 - Get vendors by location",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{GTL-TOKEN}}",
+						"type": "text"
+					},
+					{
+						"key": "Apikey",
+						"value": "{{GTL-API-KEY}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{SERVER}}{{APP-CONTEXT}}/api/vendors/search/location?page=0&size=10&lat=43.65529060512069&lon=-79.38427993725537",
+					"host": [
+						"{{SERVER}}{{APP-CONTEXT}}"
+					],
+					"path": [
+						"api",
+						"vendors",
+						"search",
+						"location"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "lat",
+							"value": "43.65529060512069"
+						},
+						{
+							"key": "lon",
+							"value": "-79.38427993725537"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "008 - Assign a vendor in my loan interest",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9,pt;q=0.8",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{GTL-TOKEN}}",
+						"type": "text"
+					},
+					{
+						"key": "Apikey",
+						"value": "{{GTL-API-KEY}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":1}"
+				},
+				"url": {
+					"raw": "{{SERVER}}{{APP-CONTEXT}}/api/loans/{{LOAN-INTEREST-ID}}/vendor",
+					"host": [
+						"{{SERVER}}{{APP-CONTEXT}}"
+					],
+					"path": [
+						"api",
+						"loans",
+						"{{LOAN-INTEREST-ID}}",
+						"vendor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "009 - Calculate loan",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*",
+						"type": "text"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{GTL-TOKEN}}",
+						"type": "text"
+					},
+					{
+						"key": "Apikey",
+						"value": "{{GTL-API-KEY}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestedLoanAmount\": 8000,\n    \"paymentFrequency\": \"BI_WEEKLY\",\n    \"termDuration\": 48,\n    \"lenderId\": 1,\n    \"interestRate\": 29.95\n}"
+				},
+				"url": {
+					"raw": "{{SERVER}}{{APP-CONTEXT}}/api/loans/calculate",
+					"host": [
+						"{{SERVER}}{{APP-CONTEXT}}"
+					],
+					"path": [
+						"api",
+						"loans",
+						"calculate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "010 - Confirm the loan request",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{GTL-TOKEN}}",
+						"type": "text"
+					},
+					{
+						"key": "Apikey",
+						"value": "{{GTL-API-KEY}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"customer\": {\n        \"email\": \"test-zaq@test.ca\"\n    },\n    \"paymentOptions\": {\n        \"loanAmount\": 6760,\n        \"termDuration\": 24,\n        \"paymentFrequency\": \"WEEKLY\"\n    }\n}"
+				},
+				"url": {
+					"raw": "{{SERVER}}{{APP-CONTEXT}}/api/loans/{{LOAN-INTEREST-ID}}/establish-loan",
+					"host": [
+						"{{SERVER}}{{APP-CONTEXT}}"
+					],
+					"path": [
+						"api",
+						"loans",
+						"{{LOAN-INTEREST-ID}}",
+						"establish-loan"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "9d2d4a1b-c7ae-48fd-8712-5b19498a9a49",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "e68c863c-dddf-4e96-a756-acb6c903936f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
