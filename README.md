@@ -8,7 +8,9 @@ Open an issue [here](https://github.com/gotoloans/gtl-gateway/issues) or send us
 
 ### How to submit a loan request using our API?
 
-The main flow contains 8(steps) that you have to follow
+The main flow contains 8(steps) that you have to follow as you can see in the image below
+
+<a href="https://app.gotoloans.com"><img src="https://raw.githubusercontent.com/gotoloans/gtl-gateway/master/images/gtl-flow.png" ></a>
 
 1) Authentication
 2) Get years
@@ -20,4 +22,7 @@ The main flow contains 8(steps) that you have to follow
 8) Confirm the loan request
 
 
-<a href="https://app.gotoloans.com"><img src="https://raw.githubusercontent.com/gotoloans/gtl-gateway/master/images/gtl-flow.png" align="left" height="90%" width="90%" ></a>
+To check the http verbs, payloads and parameters for each endpoint, click [here](https://api.cloud.wso2.com/store/apis/info?name=GoToLoans&version=1.0&provider=admin@gotoloans.com@gotoloansinc&tenant=gotoloansinc#tab1)
+
+
+
