@@ -6,5 +6,15 @@ Go To Loans is a fintech (financial/technology) lender focused on helping consum
 
 Open an issue [here](https://github.com/gotoloans/gtl-gateway/issues) or send us an e-mail(support@gotoloans.com)
 
-### 
+### How to submit a loan request using our API?
 
+The main flow contains 8(steps) that you have to follow
+
+1) Authentication
+2) Get years
+3) Get (car) makers
+4) Get (car) models by makers
+5) Get (car) trim by maker and model
+6) Get (car) styles by maker, model and trim
+7) Publish a loan interest and get rates
+8) Confirm the loan request
