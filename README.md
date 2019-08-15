@@ -18,3 +18,6 @@ The main flow contains 8(steps) that you have to follow
 6) Get (car) styles by maker, model and trim
 7) Publish a loan interest and get rates
 8) Confirm the loan request
+
+
+<a href="https://app.gotoloans.com"><img src="https://raw.githubusercontent.com/gotoloans/gtl-gateway/master/images/gtl-flow.png" align="left" height="50%" width="50%" ></a>
