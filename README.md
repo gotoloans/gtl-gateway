@@ -21,8 +21,12 @@ The main flow contains 8(steps) that you have to follow as you can see in the im
 7) Publish a loan interest and get rates
 8) Confirm the loan request
 
-
 To check the http verbs, payloads and parameters for each endpoint, click [here](https://api.cloud.wso2.com/store/apis/info?name=GoToLoans&version=1.0&provider=admin@gotoloans.com@gotoloansinc&tenant=gotoloansinc#tab1)
 
 
+
+### Resources
+
+- [Postman collection](https://api.cloud.wso2.com/store/apis/info?name=GoToLoans&version=1.0&provider=admin@gotoloans.com@gotoloansinc&tenant=gotoloansinc#tab1)
+- [Swagger specs](https://raw.githubusercontent.com/gotoloans/gtl-gateway/master/Tell%20us%20about%20your%20car.postman_collection.json)
 
